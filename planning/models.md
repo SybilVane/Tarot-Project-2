@@ -30,7 +30,6 @@ trim: true,
 
     email: {
       type: String,
-      //validate 8 chars 1 number
       required: true,
       trim: true,
     },
