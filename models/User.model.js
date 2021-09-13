@@ -24,16 +24,15 @@ const userSchema = new Schema({
     type:String,
     require: true
   },
-  adress:{
-    country: {
-      type: String,
-      required: true,
-    },
-    city: {
-      type: String,
-      required: true,
-    }
+  
+  country: {
+    type: String,
   },
+  
+  avatar: {
+    type: String,
+  },
+
   age: {
     type: Number,
     min: 16
