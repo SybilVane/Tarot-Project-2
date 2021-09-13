@@ -38,6 +38,11 @@ const userSchema = new Schema({
     type: Number,
     min: 16
   },
+  role: {
+    type: String,
+    enum: ['GUEST', 'USER', 'ADMIN'],
+    default: 'GUEST'
+  },
 },{  timestamps: true
 });
 
