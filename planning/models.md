@@ -74,6 +74,12 @@ required: true,
 trim: true,
 },
 
+image: {
+type: String,
+required: true,
+trim: true,
+},
+
     number: {
       type: Number,
       required: true,
