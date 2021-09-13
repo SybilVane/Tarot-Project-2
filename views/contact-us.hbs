@@ -1,0 +1,47 @@
+<div class='container'>
+
+  <div class='row justify-content-center'>
+    <div class='col-md-6'>
+
+      <h1>Contact us!</h1>
+
+      <hr />
+
+      <form action='/contact-us' method='POST'>
+
+        <div class='form-group'>
+          <label for='username'>Your name</label>
+          <input
+            type='text'
+            class='form-control'
+            id='username'
+            name='username'
+          />
+        </div>
+
+        <div class='form-group'>
+          <label for='subject'>Subject</label>
+          <input type='text' class='form-control' id='subject' name='subject' />
+        </div>
+
+        <div class='form-group'>
+          <label for='from'>Email</label>
+          <input type='email' class='form-control' id='from' name='from' />
+
+        </div>
+
+        <div class='form-group'>
+          <label for='text'>Message</label>
+          <textarea
+            class='form-control'
+            id='text'
+            rows='3'
+            name='text'
+          ></textarea>
+        </div>
+
+        <button type='submit' class='btn btn-dark btn-block'>Send message</button>
+      </form>
+    </div>
+  </div>
+</div>
