@@ -35,11 +35,11 @@
                     <label for="age">Age</label>
                     <input type="number" class="form-control" id="age" name="age">
                 </div>
-                <div class="form-group ">
+                <div class="form-group">
                     <label for="country">Country</label>
                     <select name="country" id="country" multiple>
-                    {{#each country}}
-                    <option value="{{id}}">{{name}}</option>
+                    {{#each countries}}
+                    <option value="{{name}}">{{name}}</option>
                     {{/each}}
                     </select>
                 </div>

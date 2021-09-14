@@ -1,17 +1,17 @@
 const router = require("express").Router()
+const { default: axios } = require("axios")
 const bcrypt = require('bcrypt')
 const User = require("../models/User.model")
 
 
 //Sign up
-router.get('/signup', (req, res) => res.render('auth/sign-up'))
+router.get('/signup', (req, res) => {
 
-const getCountryInfo = name => {
     axios
-        .get('https://restcountries.eu/rest/v2/name')
-        .then(response => printInfo(response.data))
-        .catch(err => printError(name))
-}
+        .get('https://restcountries.eu/rest/v2/all')
+        .then(response => res.render('auth/sign-up', {countries: response.data}))
+        .catch(err => printError(err))
+})
 
 router.post('/signup', (req, res) => {
 
@@ -71,6 +71,7 @@ router.post('/login', (req, res) => {
     }
 
     req.session.currentUser = user
+    
     res.redirect(`/profile/${user.id}`)
 })
     .catch(err => console.log(err))
