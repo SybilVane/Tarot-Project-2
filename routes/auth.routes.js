@@ -1,19 +1,18 @@
-const router = require("express").Router()
-const { default: axios } = require("axios")
-const bcrypt = require('bcrypt')
-const User = require("../models/User.model")
-
+const router = require('express').Router();
+const { default: axios } = require('axios');
+const bcrypt = require('bcrypt');
+const User = require('../models/User.model');
+const { CDNupload } = require('../config/upload.config');
 
 //Sign up
 router.get('/signup', (req, res) => {
+  axios
+    .get('https://restcountries.eu/rest/v2/all')
+    .then(response => res.render('auth/sign-up', { countries: response.data }))
+    .catch(err => printError(err));
+});
 
-    axios
-        .get('https://restcountries.eu/rest/v2/all')
-        .then(response => res.render('auth/sign-up', {countries: response.data}))
-        .catch(err => printError(err))
-})
-
-router.post('/signup', (req, res) => {
+router.post('/signup', CDNupload.single('avatar'), (req, res) => {
   const { username, userPwd, firstName, lastName, email, age, country } =
     req.body;
 
@@ -41,6 +40,7 @@ router.post('/signup', (req, res) => {
         email,
         age,
         country,
+        avatar: req.file?.path,
       })
         .then(() => res.redirect('/'))
         .catch(err => console.log(err));
@@ -61,24 +61,21 @@ router.post('/login', (req, res) => {
 
   User.findOne({ username })
     .then(user => {
+      if (!user) {
+        res.render('auth/log-in', { errorMsg: 'Username not found' });
+        return;
+      }
 
-    if (!user) {
-       res.render('auth/log-in', { errorMsg: 'Username not found' })
-       return
-        }
+      if (bcrypt.compareSync(userPwd, user.password) === false) {
+        res.render('auth/log-in', { errorMsg: 'Incorrect Password' });
+        return;
+      }
 
-    if (bcrypt.compareSync(userPwd, user.password) === false) {
-       res.render('auth/log-in', { errorMsg: 'Incorrect Password' })
-       return
-    }
+      req.session.currentUser = user;
 
-    req.session.currentUser = user
-    
-    res.redirect(`user/profile/${user.id}`)
-})
-    .catch(err => console.log(err))
+      res.redirect(`/user/profile/${user.id}`);
+    })
+    .catch(err => console.log(err));
+});
 
-})
-
-
-module.exports = router
+module.exports = router;

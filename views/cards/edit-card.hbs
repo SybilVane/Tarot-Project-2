@@ -1,0 +1,78 @@
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class='col-md-6'>
+      <h2>Edit card</h2>
+      <form
+        action='/cards/details/edit/{{id}}'
+        method='POST'
+        enctype='multipart/form-data'
+      >
+        <h3>{{name}}</h3>
+
+        <div class='form-group'>
+
+          <button type='submit' class='btn btn-dark'>Submit</button>
+
+          <label for='uprightImage'>Upright Image</label>
+          <input
+            type='file'
+            class='form-control'
+            id='uprightImage'
+            name='image'
+          />
+        </div>
+        <div class='form-group'>
+          <label for='reverseImage'>Reverse Image</label>
+          <input
+            type='file'
+            class='form-control'
+            id='reverseImage'
+            name='image'
+          />
+        </div>
+        <div class='form-group'>
+          <label for='uprightKeywords'>Upright Keywords</label>
+          <input
+            type='text'
+            class='form-control'
+            id='uprightKeywords'
+            name='uprightKeywords'
+            value='{{uprightKeywords}}'
+          />
+        </div>
+        <div class='form-group'>
+          <label for='reverseKeywords'>Reverse Keywords</label>
+          <input
+            type='text'
+            class='form-control'
+            id='reverseKeywords'
+            name='reverseKeywords'
+            value='{{reverseKeywords}}'
+          />
+        </div>
+        <div class='form-group'>
+          <label for='uprightFullDescription'>Upright Full Description</label>
+          <textarea
+            class='form-control'
+            rows='8'
+            id='uprightFullDescription'
+            name='uprightFullDescription'
+          >{{uprightFullDescription}}</textarea>
+        </div>
+        <div class='form-group'>
+          <label for='reverseFullDescription'>Reverse Full Description</label><br
+          />
+
+          <textarea
+            class='form-control'
+            rows='8'
+            id='reverseFullDescription'
+            name='reverseFullDescription'
+          >{{reverseFullDescription}}</textarea>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+{{errorMessage}}

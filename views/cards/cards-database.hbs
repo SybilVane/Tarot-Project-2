@@ -1,0 +1,30 @@
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class='col-md-6'>
+      Welcome to our cards database!
+    </div>
+  </div>
+
+  <hr />
+
+  <div class='row'>
+    {{#each cards}}
+      <div class='col-md-2'>
+        <div class='card image-card'>
+          <img
+            class='cardImage'
+            src='{{uprightImage}}'
+            class='card-img-top'
+            alt='{{name}}'
+          />
+          <div class='card-body'>
+       <a href='/cards/details/{{id}}'>
+            <h5 class='card-title'>
+             {{name}}</a>
+            </h5>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
