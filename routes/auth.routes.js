@@ -55,7 +55,7 @@ router.post('/login', (req, res) => {
   const { username, userPwd } = req.body;
 
   if (userPwd.length === 0 || username.length === 0) {
-    res.render('auth/login', { errorMsg: 'All fields must be completed' });
+    res.render('auth/log-in', { errorMsg: 'All fields must be completed' });
     return;
   }
 
