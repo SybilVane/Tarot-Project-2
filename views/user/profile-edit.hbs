@@ -5,35 +5,35 @@
 
         <div class="col-md-4">
 
-            <h1>User Sign Up</h1>
+            <h1>Update your Profile</h1>
             <br>
             <hr>
             <br>
 
-            <form action="/signup" method="POST">
+            <form action="/profile/:id/edit" method="POST">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username">
+                    <input type="text" class="form-control" id="username" name="username" value='{{username}}' disabled="disabled">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="userPwd">
+                    <input type="password" class="form-control" id="password" name="userPwd" disabled="disabled" placeholder="Cant be change whithout Admin OK.">
                 </div>
                 <div class="form-group">
                     <label for="firstName">Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName">
+                    <input type="text" class="form-control" id="firstName" name="firstName" value='{{firstName}}' disabled="disabled">
                 </div>
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName">
+                    <input type="text" class="form-control" id="lastName" name="lastName" value='{{lastName}}' disabled="disabled">
                 </div>
                 <div class="form-group">
                     <label for="email">e-Mail</label>
-                    <input type="email" class="form-control" id="email" name="email">
+                    <input type="email" class="form-control" id="email" name="email" value='{{email}}'>
                 </div>
                 <div class="form-group">
                     <label for="age">Age</label>
-                    <input type="number" class="form-control" id="age" name="age">
+                    <input type="number" class="form-control" id="age" name="age" value='{{age}}'>
                 </div>
                 <div class="form-group">
                     <label for="country">Country</label>
@@ -45,18 +45,17 @@
                 </div>
                 <div class="form-group">
                     <label for="avatar">Avatar</label>
-                    <input type="file" class="form-control" id="avatar" name="avatar">
+                    <input type="file" class="form-control" id="avatar" name="avatar" value='{{avatar}}'>
                 </div>
-                <button type="submit" class="btn btn-dark btn-block">Sign Up</button>
+                <button type="submit" class="btn btn-dark btn-block">Update</button>
             </form>
 
             {{#if errorMsg}}
             <p id="errorMessage">{{errorMsg}}</p>
             {{/if}}
 
-            <hr>
+            <a href="user/profile/{{id}}" class="btn btn-dark">Back to Profile</a>
 
-            <p>Do you have an account? <a href="/login">Log in</a></p>
         </div>
     </div>
 

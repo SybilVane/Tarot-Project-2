@@ -49,7 +49,7 @@ router.post('/signup', (req, res) => {
 });
 
 //Log in
-router.get('/login', (req, res) => res.render('auth/login'));
+router.get('/login', (req, res) => res.render('auth/log-in'));
 
 router.post('/login', (req, res) => {
   const { username, userPwd } = req.body;
@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
     .then(user => {
 
     if (!user) {
-       res.render('auth/log-in', { errorMsg: 'Unrecognized User' })
+       res.render('auth/log-in', { errorMsg: 'Username not found' })
        return
         }
 
@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
 
     req.session.currentUser = user
     
-    res.redirect(`/profile/${user.id}`)
+    res.redirect(`user/profile/${user.id}`)
 })
     .catch(err => console.log(err))
 
