@@ -20,7 +20,7 @@ router.post('/contact-us', (req, res, next) => {
       text,
       html: `from ${username}: <b>${text}</b>`,
     })
-    .then(info => res.send(info))
+    .then(res.redirect('/'))
     .catch(error => console.log(error));
 });
 
