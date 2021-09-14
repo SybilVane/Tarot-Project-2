@@ -1,31 +1,44 @@
 #errorMessage {
-    background-color: rgb(255, 202, 202);
-    width: 400px;
-    position: fixed;
-    right: 10px;
+  background-color: rgb(255, 202, 202);
+  width: 400px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px;
+  text-align: center;
+  animation: showFromBottom 6s forwards;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* .cardImage {
+  height: 30%;
+  width: 30%;
+} */
+
+@keyframes showFromBottom {
+  0% {
+    bottom: -50px;
+  }
+
+  10% {
     bottom: 10px;
-    padding: 5px;
-    text-align: center;
-    animation: showFromBottom 6s forwards;
   }
-  
-  
-  @keyframes  showFromBottom {
-    0% {
-      bottom: -50px
-    }
-  
-    10% {
-      bottom: 10px;
-  
-    }
-  
-    90% {
-      bottom: 10px;
-    }
-  
-    100% {
-      bottom: -50px
-    }
+
+  90% {
+    bottom: 10px;
   }
-  
+
+  100% {
+    bottom: -50px;
+  }
+}
+
+/* Color de texto
+#FFE851
+
+
+Color de fondo
+#1C0038 */

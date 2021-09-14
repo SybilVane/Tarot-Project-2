@@ -1,8 +1,5 @@
 const multer = require('multer');
 
-// Local upload
-const localUpload = multer({ dest: './public/uploads/' });
-
 // CDN upload
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
@@ -17,4 +14,4 @@ cloudinary.config({
 const storage = new CloudinaryStorage({ cloudinary });
 const CDNupload = multer({ storage });
 
-module.exports = { CDNupload, localUpload };
+module.exports = { CDNupload };
