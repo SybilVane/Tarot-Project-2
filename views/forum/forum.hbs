@@ -28,17 +28,19 @@
       <hr />
 
       {{#each forum}}
-        <div class='card mb-3' style='max-width: 540px;'>
+        <div class='card mb-3' style='max-width: auto;'>
           <div class='row no-gutters'>
-            <div class='col-md-2'>
+            <div
+              class='col-md-2 d-flex flex-row align-items-center justify-content-end'
+            >
               <img
                 class='forum-avatar'
                 src='{{user_id.avatar}}'
-                alt='{{userid_.username}}'
+                alt='{{user_id.username}}'
               />
             </div>
             <div class='col-md-10'>
-              <div class='card-body'>
+              <div class='card-body text-centered'>
                 <h5 class='card-name'>{{user_id.username}}</h5>
                 <p class='card-date'><small>{{date}}</small></p>
                 <p class='card-text'>{{message}}</p>

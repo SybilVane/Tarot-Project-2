@@ -10,6 +10,7 @@
   <div class='row'>
     {{#each cards}}
       <div class='col-md-2'>
+        <a class='card-database' href='/cards/details/{{id}}'>
         <div class='card image-card'>
           <img
           class='card-image'
@@ -18,13 +19,13 @@
             alt='{{name}}'
           />
           <div class='card-body'>
-       <a href='/cards/details/{{id}}'>
+       
             <h5 class='card-title'>
-             {{name}}</a>
+             {{name}}
             </h5>
           </div>
         </div>
-      </div>
+      </div></a>
     {{/each}}
   </div>
 </div>
