@@ -21,7 +21,11 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  font-family: 'IM Fell English SC', serif;
+  text-align: center;
+}
+
 nav {
   font-family: 'IM Fell English SC', serif;
 }
@@ -50,11 +54,9 @@ nav {
 li {
   list-style-type: none;
 }
-
-/* .cardImage {
-  height: 30%;
-  width: 30%;
-} */
+.card-image {
+  border-radius: 3%;
+}
 
 @keyframes showFromBottom {
   0% {
