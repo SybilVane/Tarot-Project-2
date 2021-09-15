@@ -36,6 +36,14 @@ li {
   }
 }
 
+
+.forum-avatar{
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 500px;
+}
+
 /* Color de texto
 #FFE851
 

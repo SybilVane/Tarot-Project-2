@@ -32,6 +32,7 @@ router.get('/forum', (req,res) => {
 
   Forum
   .find()
+  .sort({date:-1})
   .populate('user_id')
   .then(forum => res.render('forum/forum', {forum}))
   .catch(error => console.log(error));
