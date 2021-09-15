@@ -6,8 +6,7 @@
 
       <h1>Update Profile</h1>
 
-{{id}}
-      <form action='/user/profile/{{id}}/edit' method='POST'>
+      <form action='/user/profile/{{id}}/edit' method='POST'  enctype='multipart/form-data'>
         <div class='form-group'>
           <label for='username'>Username</label>
           <input
@@ -91,7 +90,6 @@
             class='form-control'
             id='avatar'
             name='avatar'
-            value='{{avatar}}'
           />
         </div>
         <button type='submit' class='btn btn-purple btn-block'>Update</button>

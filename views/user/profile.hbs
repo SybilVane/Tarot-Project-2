@@ -1,13 +1,26 @@
 <div class='container'>
-  <h2><strong>{{username}}</strong></h2>
+  <h2><strong>{{history.0.user_id.username}}</strong></h2>
   <br />
-  <img class='forum-avatar' src='{{avatar}}' alt='{{username}}' />
+  <img
+    class='forum-avatar'
+    src='{{history.0.user_id.avatar}}'
+    alt='{{history.0.user_id.username}}'
+  />
   <br />
   <hr />
   <h5>Reading History</h5>
-  <p>{{history}}</p>
 
-  <hr />
+  {{#each history}}
+    <ul>
+
+      {{#each cards_id}}
+        <li>{{name}}</li>
+      {{/each}}
+    </ul>
+    <a href='/cards/history-reading/' class='btn btn-purple'>Detail</a>
+    <hr />
+
+  {{/each}}
 
   <br />
 
