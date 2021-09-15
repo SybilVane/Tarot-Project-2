@@ -7,8 +7,28 @@
       <p>Waiting for the Stars to align... Get your Tarot reading for free!</p>
 
       <hr>
-      
+      <h3>This is your Daily Card</h3>
+    {{#if position}}
+      <img src="{{card.uprightImage}}" alt="{{card.name}}">
 
+      <hr>
+
+      <p><strong>Keywords:</strong>{{card.uprightKeywords}}</p>
+
+      <hr>
+
+      <p><strong>Description:</strong>{{card.uprightFullDescription}}</p>
+      {{else}}
+      <img src="{{card.reverseImage}}" alt="{{card.name}}">
+
+      <hr>
+
+      <p><strong>Keywords:</strong>{{card.reverseKeywords}}</p>
+
+      <hr>
+
+      <p><strong>Description:</strong>{{card.reverseFullDescription}}</p>
+      {{/if}}
     </div>
   </div>
 </div>

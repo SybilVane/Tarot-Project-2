@@ -50,13 +50,5 @@ router.post(
   }
 );
 
-//Day Card
-router.get('/', (req, res, next) => {
- 
-  Card
-  .findOne()
-  .then(card => res.render('index', card))
-  .catch(err => console.error(err));
-});
 
 module.exports = router;
