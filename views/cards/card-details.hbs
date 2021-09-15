@@ -1,28 +1,28 @@
 <div class='container'>
 
   <div class='row justify-content-center'>
-    <div class='col-md-6'>
-      Card details
+    <div class='col-md-6 d-flex flex-column align-items-center'>
+      <h1>{{name}}</h1>
       <hr />
 
-      <a href='/cards/details/edit/{{id}}'>Edit card</a>
-
-      <h3>{{name}}</h3>
+      <img width='50%' src='{{uprightImage}}' />
       <br /><br />
-      <img src='{{uprightImage}}' />
-      <br /><br />
-      <h5>Upright keywords:</h5>
+      <h4>Upright keywords</h4>
+      ⚜
       {{uprightKeywords}}
+      ⚜
       <br /><br />
-      <h5>Upright full description</h5>{{uprightFullDescription}}
+      <h4>Upright full description</h4><p>{{uprightFullDescription}}</p>
       <br /><br />
       <img src='{{reverseImage}}' />
       <br /><br />
-      <h5>Reversed keywords:</h5>
+      <h4>Reversed keywords</h4>
+      ⚜
       {{reverseKeywords}}
+      ⚜
       <br /><br />
-      <h5>Reversed full description</h5>{{reverseFullDescription}}
-
+      <h4>Reversed full description</h4><p>{{reverseFullDescription}}</p>
+      <a href='/cards/details/edit/{{id}}'>Edit card</a>
     </div>
   </div>
 </div>

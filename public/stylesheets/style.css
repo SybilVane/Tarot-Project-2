@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=IM+Fell+English+SC&family=Prata&display=swap');
+
 #errorMessage {
   background-color: rgb(255, 202, 202);
   width: 400px;
@@ -7,6 +9,35 @@
   padding: 5px;
   text-align: center;
   animation: showFromBottom 6s forwards;
+}
+
+body {
+  font-family: 'Bona Nova', serif;
+  font-size: 17px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+nav {
+  font-family: 'IM Fell English SC', serif;
+}
+
+.keywords {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 20px;
+}
+
+main {
+  margin-top: 40px;
+}
+
+nav {
+  background-color: #1c0038;
+  color: #ffe851;
 }
 
 li {
@@ -36,9 +67,13 @@ li {
   }
 }
 
-/* Color de texto
-#FFE851
+/* 
+font-family: 'Bona Nova', serif;
+font-family: 'IM Fell English SC', serif;
+font-family: 'Prata', serif;
 
+Color de texto
+#FFE851
 
 Color de fondo
 #1C0038 */

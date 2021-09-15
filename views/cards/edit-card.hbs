@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row justify-content-center'>
-    <div class='col-md-6'>
-      <h2>Edit card</h2>
+    <div class='col-md-12 d-flex flex-column align-items-center'>
+      <h1>Edit card</h1>
       <form
         action='/cards/details/edit/{{id}}'
         method='POST'
@@ -10,8 +10,6 @@
         <h3>{{name}}</h3>
 
         <div class='form-group'>
-
-          <button type='submit' class='btn btn-dark'>Submit</button>
 
           <label for='uprightImage'>Upright Image</label>
           <input
@@ -70,7 +68,7 @@
             name='reverseFullDescription'
           >{{reverseFullDescription}}</textarea>
         </div>
-
+        <button type='submit' class='btn btn-dark'>Submit</button>
       </form>
     </div>
   </div>
