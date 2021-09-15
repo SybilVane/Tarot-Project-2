@@ -1,12 +1,21 @@
 const router = require('express').Router();
 const Forum = require("../models/Forum.model")
-
+const Card = require('./../models/Card.model');
 const transporter = require('../config/mailing.config');
 const { find } = require('../models/Forum.model');
 
-/* GET home page */
+
+//Day Card
 router.get('/', (req, res, next) => {
-  res.render('index');
+
+ 
+  Card
+  .find()
+  .then(cards => {
+    let card = cards[Math.floor(Math.random()* cards.length)]
+    let position = Math.round(Math.random())
+    res.render('index', {card, position})})
+  .catch(err => console.error(err));
 });
 
 router.get('/contact-us', (req, res, next) => res.render('contact-us'));
