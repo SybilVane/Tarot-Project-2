@@ -2,11 +2,10 @@
 
   <div class='row justify-content-center'>
 
-    <div class='col-md-4'>
+    <div class='col-md-4 d-flex flex-column align-items-center'>
 
-      <h1>User Sign Up</h1>
-      <br />
-      <hr />
+      <h1>Sign Up</h1>
+     
       <br />
 
       <form action='/signup' method='POST' enctype='multipart/form-data'>
@@ -29,7 +28,7 @@
           />
         </div>
         <div class='form-group'>
-          <label for='firstName'>Name</label>
+          <label for='firstName'>First Name</label>
           <input
             type='text'
             class='form-control'
@@ -47,7 +46,7 @@
           />
         </div>
         <div class='form-group'>
-          <label for='email'>e-Mail</label>
+          <label for='email'>E-Mail</label>
           <input type='email' class='form-control' id='email' name='email' />
         </div>
         <div class='form-group'>
@@ -73,9 +72,9 @@
         <p id='errorMessage'>{{errorMsg}}</p>
       {{/if}}
 
-      <hr />
+     
 
-            <p>Do you have an account? <a href="/login">Log in</a></p>
+            <p>You already have an account? <a href="/login">Log in</a></p>
         </div>
     </div>
   </div>
