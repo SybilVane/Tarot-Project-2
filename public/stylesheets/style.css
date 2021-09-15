@@ -31,6 +31,13 @@ nav {
   font-size: 20px;
 }
 
+.forum-avatar {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 500px;
+}
+
 main {
   margin-top: 40px;
 }
@@ -72,6 +79,8 @@ font-family: 'Bona Nova', serif;
 font-family: 'IM Fell English SC', serif;
 font-family: 'Prata', serif;
 
+
+/* 
 Color de texto
 #FFE851
 

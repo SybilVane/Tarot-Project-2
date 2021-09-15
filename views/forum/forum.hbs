@@ -7,7 +7,7 @@
 
             <h1>The Forum</h1>
             <br>
-            <h3>Let everyone in the comunity help you</h3>
+            <h3>Let everyone in the comunity know your opinion</h3>
             <hr>
             <br>
 
@@ -24,19 +24,20 @@
 
             <hr>
 
-           {{#each forum}}
+            {{#each forum}}
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-2">
-                        <img src="{{user_id.avatar}}" alt="{{userid_.username}}">
+                        <img class='forum-avatar' src="{{user_id.avatar}}" alt="{{userid_.username}}">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-10">
                         <div class="card-body">
                         <h5 class="card-name">{{user_id.username}}</h5>
-                        <h5 class="card-date">{{date}}</h5>
+                        <p class="card-date"><small>{{date}}</small></p>
                         <p class="card-text">{{message}}</p>
+                        </div>
                     </div>
-                 </div>
+                </div>
             </div>
             {{/each}}
         </div>
