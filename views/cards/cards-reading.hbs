@@ -1,0 +1,82 @@
+<div class='container'>
+
+  <div class='row justify-content-center'>
+    <div class='col-md-6 d-flex flex-column align-items-center'>
+      <h1>Your reading</h1>
+      <hr />
+      {{#if positionA}}
+      <img class='card1-image' src='{{card1.uprightImage}}' alt="{{card1.name}}" />
+      <br /><br />
+      <h4>keywords</h4>
+      ⚜
+      <p>{{card1.uprightKeywords}}</p>
+      ⚜
+      <br /><br />
+      <h4>Full description:</h4>
+      <p>{{card1.uprightFullDescription}}</p>
+      <br /><br />
+      {{else}}
+       <img class='card1-image' src='{{card1.reverseImage}}' alt="{{card1.name}}" />
+      <br /><br />
+      <h4>keywords</h4>
+      ⚜
+      <p>{{card1.reverseKeywords}}</p>
+      ⚜
+      <br /><br />
+      <h4>Full description:</h4>
+      <p>{{card1.reverseFullDescription}}</p>
+      <br /><br />
+      {{/if}}
+
+      {{#if positionB}}
+      <img class='card2-image' src='{{card2.uprightImage}}' alt="{{card2.name}}" />
+      <br /><br />
+      <h4>keywords</h4>
+      ⚜
+      <p>{{card2.uprightKeywords}}</p>
+      ⚜
+      <br /><br />
+      <h4>Full description:</h4>
+      <p>{{card2.uprightFullDescription}}</p>
+      <br /><br />
+      {{else}}
+       <img class='card2-image' src='{{card2.reverseImage}}' alt="{{card2.name}}" />
+      <br /><br />
+      <h4>keywords</h4>
+      ⚜
+      <p>{{card2.reverseKeywords}}</p>
+      ⚜
+      <br /><br />
+      <h4>Full description:</h4>
+      <p>{{card2.reverseFullDescription}}</p>
+      <br /><br />
+      {{/if}}
+
+      {{#if positionC}}
+      <img class='card3-image' src='{{card3.uprightImage}}' alt="{{card3.name}}" />
+      <br /><br />
+      <h4>keywords</h4>
+      ⚜
+      <p>{{card3.uprightKeywords}}</p>
+      ⚜
+      <br /><br />
+      <h4>Full description:</h4>
+      <p>{{card3.uprightFullDescription}}</p>
+      <br /><br />
+      {{else}}
+       <img class='card3-image' src='{{card3.reverseImage}}' alt="{{card3.name}}" />
+      <br /><br />
+      <h4>keywords</h4>
+      ⚜
+      <p>{{card3.reverseKeywords}}</p>
+      ⚜
+      <br /><br />
+      <h4>Full description:</h4>
+      <p>{{card3.reverseFullDescription}}</p>
+      <br /><br />
+      {{/if}}
+     
+    </div>
+  </div>
+   <a href="/" class="btn btn-dark">Home</a>
+</div>

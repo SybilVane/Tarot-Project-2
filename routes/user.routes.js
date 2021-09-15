@@ -6,7 +6,7 @@ const User = require("../models/User.model")
 router.get('/profile/:id',  (req, res) => {
     
     const {id} = req.params
-
+console.log(id, '-------------------------------------');
     User
     .findById(id)
     .select('username avatar history')
@@ -20,7 +20,7 @@ router.get('/profile/:id/edit', (req, res) =>{
     
     axios
     .get('https://restcountries.eu/rest/v2/all')
-    .then(response => res.render('user/profile-edit', {countries: response.data}))
+    .then(response => res.render('user/profile-edit', {countries: response.data,id:req.params.id}))
     .catch(err => printError(err))
 })
 
@@ -28,9 +28,16 @@ router.post('/profile/:id/edit', (req, res) =>{
     const { id } = req.params
     const { email, avatar, country, age } = req.body
 
+    const query = {}
+
+    email && (query.email = email)
+    avatar && (query.avatar = avatar)
+    country && (query.country = country)
+    age && (query.age = age)
+    
     User
-    .findByIdAndUpdate(id, { email, avatar, country, age }, { new: true })
-    .then((user) => {res.render('user/profile',user) })
+    .findByIdAndUpdate(id, query, { new: true })
+    .then((user) => {res.redirect(`/user/profile/${id}` )})
     .catch(err => console.log(err))
 })
 
@@ -38,7 +45,7 @@ router.post('/profile/:id/edit', (req, res) =>{
 router.post('/profile/:id/delete', (req,res) => {
     
     const {id} = req.params
-console.log(id);
+
     User
     .findByIdAndDelete(id)
     .then(() =>res.redirect('/'))
