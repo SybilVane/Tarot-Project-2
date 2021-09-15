@@ -1,25 +1,21 @@
-<div class="container">
-    <h2><strong>{{username}}</strong></h2>
-    <br>
-    <img src="{{avatar}}" alt="{{username}}">
-    <br>
-    <hr>
-    <h5>Reading History</h5>
-    <p>{{history}}</p>
+<div class='container'>
+  <h2><strong>{{username}}</strong></h2>
+  <br />
+  <img src='{{avatar}}' alt='{{username}}' />
+  <br />
+  <hr />
+  <h5>Reading History</h5>
+  <p>{{history}}</p>
 
-    <hr>
-    
-    
-    
+  <hr />
 
-   
-<br>
+  <br />
 
-    <a href="/" class="btn btn-dark">Home</a>
+  <a href='/' class='btn btn-purple'>Home</a>
 
-    <a href="/user/profile/{{id}}/edit" class="btn btn-warning">Edit</a>
+  <a href='/user/profile/{{id}}/edit' class='btn btn-warning'>Edit</a>
 
-     <form action="/user/profile/{{id}}/delete" method="POST">
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
+  <form action='/user/profile/{{id}}/delete' method='POST'>
+    <button type='submit' class='btn btn-danger'>Delete</button>
+  </form>
 </div>

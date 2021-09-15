@@ -1,33 +1,36 @@
 <div class='container'>
 
-  <div class='row justify-content-center'>
+  <div class='row justify-content-center text-centered'>
     <div class='col-md-6 d-flex flex-column align-items-center'>
 
-      <h1 class='text-justify'>{{siteTitle}}</h1>
-      <p>Waiting for the Stars to align... Get your Tarot reading for free!</p>
-
-      <hr>
-      <h3>This is your Daily Card</h3>
-    {{#if position}}
-      <img src="{{card.uprightImage}}" alt="{{card.name}}">
-
-      <hr>
-
-      <p><strong>Keywords:</strong>{{card.uprightKeywords}}</p>
-
-      <hr>
-
-      <p><strong>Description:</strong>{{card.uprightFullDescription}}</p>
+      <h4>Your Daily Card:</h4>
+      {{#if position}}
+        <h1>{{card.name}} (upright)</h1>
+        <img
+          src='{{card.uprightImage}}'
+          class='card-image-main'
+          alt='{{card.name}}'
+        />
+        <span class='keywords'>
+          ⚜
+          {{card.uprightKeywords}}
+          ⚜</span>
+        <hr />
+        <h3>Advice for today</h3>
+        {{card.uprightFullDescription}}
       {{else}}
-      <img src="{{card.reverseImage}}" alt="{{card.name}}">
+        <h1>{{card.name}} (reversed)</h1>
+        <img
+          src='{{card.reverseImage}}'
+          class='card-image-main'
+          alt='{{card.name}}'
+        />
 
-      <hr>
-
-      <p><strong>Keywords:</strong>{{card.reverseKeywords}}</p>
-
-      <hr>
-
-      <p><strong>Description:</strong>{{card.reverseFullDescription}}</p>
+        <span class='keywords'>⚜
+          {{card.reverseKeywords}}
+          ⚜</span>
+        <hr />
+        <h4>Advice for today</h4>{{card.reverseFullDescription}}
       {{/if}}
     </div>
   </div>

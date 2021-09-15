@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=IM+Fell+English+SC&family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=IM+Fell+English+SC&family=Prata&family=Varela&display=swap');
 
 #errorMessage {
   background-color: rgb(255, 202, 202);
@@ -14,6 +14,7 @@
 body {
   font-family: 'Bona Nova', serif;
   font-size: 17px;
+  background-color: #feffaa;
 }
 
 h1,
@@ -26,13 +27,23 @@ h6 {
   text-align: center;
 }
 
+.text-centered {
+  text-align: center;
+}
+
 nav {
   font-family: 'IM Fell English SC', serif;
+  background-color: #1c0038;
+}
+
+.btn-purple {
+  background-color: #1c0038;
+  color: #ffffff;
 }
 
 .keywords {
   font-family: 'IM Fell English SC', serif;
-  font-size: 20px;
+  font-size: 21px;
 }
 
 .forum-avatar {
@@ -46,16 +57,36 @@ main {
   margin-top: 40px;
 }
 
-nav {
-  background-color: #1c0038;
-  color: #ffe851;
-}
-
 li {
   list-style-type: none;
 }
 .card-image {
   border-radius: 3%;
+}
+
+.card-image-main {
+  border-radius: 3%;
+  height: 350px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1c0038;
+  font-size: 0.7em;
+  font-family: 'Varela', sans-serif;
+  color: white;
+  padding: 4px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer a {
+  color: #ffffff;
 }
 
 @keyframes showFromBottom {
