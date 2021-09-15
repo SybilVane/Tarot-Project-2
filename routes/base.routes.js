@@ -3,6 +3,7 @@ const Forum = require("../models/Forum.model")
 const Card = require('./../models/Card.model');
 const transporter = require('../config/mailing.config');
 const { find } = require('../models/Forum.model');
+const { isLoggedIn, checkRoles } = require('./../middleware')
 
 
 //Day Card
@@ -36,12 +37,13 @@ router.post('/contact-us', (req, res, next) => {
 });
 
 //Forum
-router.get('/forum', (req,res) => {
+router.get('/forum', isLoggedIn, checkRoles('ADMIN', 'USER'), (req,res) => {
   
 
   Forum
   .find()
   .sort({date:-1})
+  .limit(10)
   .populate('user_id')
   .then(forum => res.render('forum/forum', {forum}))
   .catch(error => console.log(error));
@@ -51,6 +53,15 @@ router.post('/forum', (req,res) =>{
   
   Forum
   .create({message, user_id: req.session.currentUser._id})
+  .then(() => res.redirect('/forum'))
+  .catch(error => console.log(error));
+})
+
+router.post('/forum/:id/delete',isLoggedIn, checkRoles('ADMIN'), (req,res) =>{
+  const {id} = req.params
+  
+  Forum
+  .findByIdAndDelete(id)
   .then(() => res.redirect('/forum'))
   .catch(error => console.log(error));
 })

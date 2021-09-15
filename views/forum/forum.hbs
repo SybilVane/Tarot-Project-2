@@ -25,6 +25,8 @@
         <button type='submit' class='btn btn-dark btn-block'>Post Message</button>
       </form>
 
+     
+
       <hr />
 
       {{#each forum}}
@@ -46,6 +48,9 @@
             </div>
           </div>
         </div>
+         <form action="/forum/forum/{{id}}/delete" method="POST">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
       {{/each}}
     </div>
 

@@ -1,22 +1,27 @@
 const router = require("express").Router()
 const { default: axios } = require("axios")
 const User = require("../models/User.model")
+const History = require('./../models/History.model');
+const { CDNupload } = require('../config/upload.config');
+const { isLoggedIn, checkRoles } = require('./../middleware')
+
 
 //User Profile
-router.get('/profile/:id',  (req, res) => {
+router.get('/profile/:id', isLoggedIn,checkRoles('ADMIN', 'USER'), (req, res) => {
     
     const {id} = req.params
-console.log(id, '-------------------------------------');
-    User
-    .findById(id)
-    .select('username avatar history')
-    .then((user) => {res.render('user/profile',user) })
+
+    History
+    .find({user_id: id})
+    .limit(10)
+    .populate('user_id cards_id')
+    .then((history) => {res.render('user/profile',{history, id}) })
     .catch(err => console.log(err))
 })
 
 
 //User Profile Edit
-router.get('/profile/:id/edit', (req, res) =>{
+router.get('/profile/:id/edit', isLoggedIn, checkRoles('ADMIN', 'USER'),(req, res) =>{
     
     axios
     .get('https://restcountries.eu/rest/v2/all')
@@ -24,16 +29,20 @@ router.get('/profile/:id/edit', (req, res) =>{
     .catch(err => printError(err))
 })
 
-router.post('/profile/:id/edit', (req, res) =>{
+router.post('/profile/:id/edit', CDNupload.single('avatar'), (req, res) =>{
     const { id } = req.params
-    const { email, avatar, country, age } = req.body
+    const { email, country, age } = req.body
+
+    console.log(req.file, '----------------');
 
     const query = {}
 
     email && (query.email = email)
-    avatar && (query.avatar = avatar)
+    req.file && (query.avatar = req.file?.path)
     country && (query.country = country)
     age && (query.age = age)
+
+    console.log(query);
     
     User
     .findByIdAndUpdate(id, query, { new: true })
@@ -42,7 +51,7 @@ router.post('/profile/:id/edit', (req, res) =>{
 })
 
 //User Delete
-router.post('/profile/:id/delete', (req,res) => {
+router.post('/profile/:id/delete',isLoggedIn, checkRoles('ADMIN'), (req,res) => {
     
     const {id} = req.params
 
