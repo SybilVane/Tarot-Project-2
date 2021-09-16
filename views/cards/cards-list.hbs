@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Cards</h1>
+    <hr>
+
+    {{#each cards}}
+
+    <p><strong><i>{{number}}. </i>{{name}}</strong><p>
+
+   
+    <a href='/cards/details/edit/{{id}}'>Edit card</a>
+    <hr>
+    {{/each}}
+
+    <a href="/admin" class="btn btn-dark">Volver</a>
+</div>

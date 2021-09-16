@@ -64,18 +64,5 @@ router.post('/profile/:id/edit', CDNupload.single('avatar'), (req, res) => {
     .catch(err => console.log(err));
 });
 
-//User Delete
-router.post(
-  '/profile/:id/delete',
-  isLoggedIn,
-  checkRoles('ADMIN'),
-  (req, res) => {
-    const { id } = req.params;
-
-    User.findByIdAndDelete(id)
-      .then(() => res.redirect('/'))
-      .catch(err => console.log(err));
-  }
-);
 
 module.exports = router;
