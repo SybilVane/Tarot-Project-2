@@ -4,7 +4,7 @@ const Card = require('./../models/Card.model');
 const transporter = require('../config/mailing.config');
 const { find } = require('../models/Forum.model');
 const { isLoggedIn, checkRoles } = require('./../middleware')
-
+const { isADMIN, isLogged} = require('./../utils')
 
 //Day Card
 router.get('/', (req, res, next) => {
@@ -39,13 +39,15 @@ router.post('/contact-us', (req, res, next) => {
 //Forum
 router.get('/forum', isLoggedIn, checkRoles('ADMIN', 'USER'), (req,res) => {
   
-
+  const { page = 1, limit = 10 } = req.query;
+console.log(page);
   Forum
   .find()
   .sort({date:-1})
-  .limit(10)
+  .skip((page -1) * limit)
+  .limit(limit)
   .populate('user_id')
-  .then(forum => res.render('forum/forum', {forum}))
+  .then(forum => res.render('forum/forum', {forum ,isADMIN: isADMIN(req.session.currentUser?.role), isLogged: isLogged(req.session.currentUser)}))
   .catch(error => console.log(error));
 })
 router.post('/forum', (req,res) =>{
