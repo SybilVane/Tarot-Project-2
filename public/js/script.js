@@ -9,6 +9,8 @@ document.addEventListener(
         `https:${location.href.substring(location.protocol.length)}`
       );
     }
+
+    console.log('ok');
   },
   false
 );
