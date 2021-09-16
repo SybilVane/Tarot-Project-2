@@ -1,49 +1,56 @@
 <div class='container'>
-  <h2>{{history.0.user_id.username}}</h2>
-  <br />
+  <h1>{{history.0.user_id.username}}</h1>
+
   <div class='row justify-content-center'>
     <div
-      class='col-md-2 d-flex flex-row align-items-center justify-content-around'
+      class='col-md-12 d-flex flex-column align-items-center justify-content-around'
     >
       <img
         class='profile-avatar'
         src='{{history.0.user_id.avatar}}'
         alt='{{history.0.user_id.username}}'
       /></div>
-    <div
-      class='col-md-10 d-flex flex-row align-items-center justify-content-around'
-    >
-      {{history.0.user_id.firstName}}
-      {{history.0.user_id.lastName}}
-      {{history.0.user_id.country}}
-      {{history.0.user_id.age}}
-
-    </div>
     <br />
   </div>
-
-  <h5>Reading History</h5>
-
-  {{#each history}}
-    <p>{{date}}</p>
-    <ul>
-
-      {{#each cards_id}}
-        <li>{{name}}</li>
-      {{/each}}
-    </ul>
-    <a href='/cards/history-reading/' class='btn btn-purple'>Detail</a>
-    <hr />
-  {{/each}}
-
   <br />
+  <div
+    class='col-md-12 d-flex flex-column align-items-center justify-content-around'
+  >
+    <p><span class='keywords'>Name: </span>
+      {{history.0.user_id.firstName}}</p>
 
-  {{#if isLogged}}
-    <a href='/user/profile/{{id}}/edit' class='btn btn-warning'>Edit</a>
-  {{/if}}
+    <p><span class='keywords'>Surname: </span>
+      {{history.0.user_id.lastName}}</p>
 
-  {{#if isADMIN}}
+    <p><span class='keywords'>Country: </span>
+      {{history.0.user_id.country}}</p>
 
-    <a href='/admin' class='btn btn-info'>Admin Lab</a>
-  {{/if}}
+    <p><span class='keywords'>Age: </span>
+      {{history.0.user_id.age}}</p>
+    {{#if isLogged}}
+      <a href='/user/profile/{{id}}/edit' class='btn btn-purple'>Edit profile</a>
+    {{/if}}
+  </div>
+  <br />
+  <h2>Tarot Readings History</h2>
+  <div class='row justify-content-center'>
+    <div class='col-md-6 d-flex flex-column align-items-center'>
+      {{#each history}}
+        <p>{{date}}</p>
+
+        {{#each cards_id}}
+          <a href='/cards/history-reading/'>{{name}}</a>
+        {{/each}}
+
+        <hr />
+      {{/each}}
+
+      <br />
+
+      {{#if isADMIN}}
+
+        <a href='/admin' class='btn btn-info'>Admin Lab</a>
+      {{/if}}
+    </div></div>
+
 </div>
