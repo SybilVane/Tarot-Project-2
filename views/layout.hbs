@@ -36,9 +36,11 @@
           <li class='nav-item'>
             <a class='nav-link' href='/cards/database'>Tarot Database</a>
           </li>
-          <li class='nav-item'>
-            <a class='nav-link' href='/login'>Log In</a>
-          </li>
+          {{#unless isLogged}}
+            <li class='nav-item'>
+              <a class='nav-link' href='/login'>Log In</a>
+            </li>
+          {{/unless}}
           <li class='nav-item dropdown'>
             <a
               class='nav-link dropdown-toggle'
@@ -67,6 +69,7 @@
               {{#if isLogged}}
                 <a class='dropdown-item btn-purple' href='/logout'>Log Out</a>
               {{/if}}
+
             </div>
           </li>
         </ul>

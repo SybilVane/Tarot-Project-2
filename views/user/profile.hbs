@@ -1,5 +1,5 @@
 <div class='container'>
-  <h1>{{history.0.user_id.username}}</h1>
+  <h1>{{user.username}}</h1>
 
   <div class='row justify-content-center'>
     <div
@@ -7,8 +7,8 @@
     >
       <img
         class='profile-avatar'
-        src='{{history.0.user_id.avatar}}'
-        alt='{{history.0.user_id.username}}'
+        src='{{user.avatar}}'
+        alt='{{user.username}}'
       /></div>
     <br />
   </div>
@@ -17,18 +17,23 @@
     class='col-md-12 d-flex flex-column align-items-center justify-content-around'
   >
     <p><span class='keywords'>Name: </span>
-      {{history.0.user_id.firstName}}</p>
+      {{user.firstName}}</p>
 
     <p><span class='keywords'>Surname: </span>
-      {{history.0.user_id.lastName}}</p>
+      {{user.lastName}}</p>
 
     <p><span class='keywords'>Country: </span>
-      {{history.0.user_id.country}}</p>
+      {{user.country}}</p>
 
     <p><span class='keywords'>Age: </span>
-      {{history.0.user_id.age}}</p>
+      {{user.age}}</p>
     {{#if isLogged}}
       <a href='/user/profile/{{id}}/edit' class='btn btn-purple'>Edit profile</a>
+    {{/if}}
+    <br />
+    {{#if isADMIN}}
+
+      <a href='/admin' class='btn btn-info'>Admin Lab</a>
     {{/if}}
   </div>
   <br />
@@ -39,17 +44,11 @@
         <p>{{date}}</p>
 
         {{#each cards_id}}
-          <a href='/cards/history-reading/'>{{name}}</a>
+          <a href='/cards/details/{{id}}'>{{name}}</a>
         {{/each}}
         <br />
       {{/each}}
 
-      <br />
-
-      {{#if isADMIN}}
-
-        <a href='/admin' class='btn btn-info'>Admin Lab</a>
-      {{/if}}
     </div></div>
 
 </div>

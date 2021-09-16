@@ -24,6 +24,7 @@ const capitalized = string =>
   string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.siteTitle = `Tarot Sync`;
+app.locals.isLogged = false;
 
 // Session config
 require('./config/session.config')(app);

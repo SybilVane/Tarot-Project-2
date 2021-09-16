@@ -9,7 +9,7 @@ router.get('/database', (req, res, next) => {
     .select({ number: 1, name: 1, uprightImage: 1 })
     .sort({ number: 1 })
     .then(cards => {
-      res.render('cards/cards-database', { cards });
+      res.render('cards/cards-database', { cards});
     })
     .catch(err => console.log(err));
 });

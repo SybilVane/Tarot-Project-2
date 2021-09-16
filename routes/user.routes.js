@@ -15,6 +15,7 @@ router.get('/profile', isLoggedIn, checkRoles('ADMIN', 'USER'), (req, res) => {
     .populate('user_id cards_id')
     .then(history => {
       res.render('user/profile', {
+        user: req.session.currentUser,
         history,
         id,
         isADMIN: isADMIN(req.session.currentUser?.role),
