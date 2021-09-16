@@ -41,6 +41,25 @@ nav {
   color: #ffffff;
 }
 
+.dropdown-menu.btn-purple {
+  background-color: #1c0038;
+  color: #ffffff;
+}
+.dropdown-item.btn-purple {
+  background-color: #1c0038;
+  color: #ffffff;
+}
+
+.dropdown-item.btn-purple:hover {
+  color: #ce9eff;
+  text-decoration: none;
+}
+.page-link.btn-purple:hover {
+  color: #400080;
+  text-decoration: none;
+  background-color: #ce9eff;
+}
+
 a:hover,
 .btn-purple:hover,
 .btn:hover,
@@ -99,6 +118,7 @@ li {
   border-radius: 3%;
   height: 350px;
   width: 200px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
