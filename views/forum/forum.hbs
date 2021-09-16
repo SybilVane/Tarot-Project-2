@@ -50,9 +50,12 @@
             </div>
           </div>
         </div>
-         <form action="/forum/forum/{{id}}/delete" method="POST">
+        {{#if ../isADMIN}}
+        <form action="/forum/{{id}}/delete" method="POST">
         <button type="submit" class="btn btn-danger">Delete</button>
-      </form>
+        </form>
+        {{/if}}
+
       {{/each}}
     </div>
 
@@ -66,9 +69,9 @@
         <span aria-hidden='true'>&laquo;</span>
       </a>
     </li>
-    <li class='page-item'><a class='page-link' href='#'>1</a></li>
-    <li class='page-item'><a class='page-link' href='#'>2</a></li>
-    <li class='page-item'><a class='page-link' href='#'>3</a></li>
+    <li class='page-item'><a class='page-link' href='/forum?page=1'>1</a></li>
+    <li class='page-item'><a class='page-link' href='/forum?page=2'>2</a></li>
+    <li class='page-item'><a class='page-link' href='/forum?page=3'>3</a></li>
     <li class='page-item'>
       <a class='page-link' href='#' aria-label='Next'>
         <span aria-hidden='true'>&raquo;</span>

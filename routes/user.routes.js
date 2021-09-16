@@ -4,18 +4,19 @@ const User = require("../models/User.model")
 const History = require('./../models/History.model');
 const { CDNupload } = require('../config/upload.config');
 const { isLoggedIn, checkRoles } = require('./../middleware')
+const { isADMIN, isLogged} = require('./../utils')
 
 
 //User Profile
-router.get('/profile/:id', isLoggedIn,checkRoles('ADMIN', 'USER'), (req, res) => {
+router.get('/profile', isLoggedIn, checkRoles('ADMIN', 'USER'), (req, res) => {
     
-    const {id} = req.params
+    const id = req.session.currentUser._id
 
     History
     .find({user_id: id})
     .limit(10)
     .populate('user_id cards_id')
-    .then((history) => {res.render('user/profile',{history, id}) })
+    .then((history) => {res.render('user/profile',{history, id, isADMIN: isADMIN(req.session.currentUser?.role), isLogged: isLogged(req.session.currentUser)}) })
     .catch(err => console.log(err))
 })
 

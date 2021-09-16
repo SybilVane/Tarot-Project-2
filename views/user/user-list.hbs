@@ -1,0 +1,21 @@
+<div class="container">
+    <h1>Users</h1>
+    <hr>
+
+    {{#each user}}
+
+    <p><strong><i>{{username}}</i></strong><p>
+    <hr>
+    <p>{{firstName}}</p>
+    <p>{{lastName}}</p>
+    <p><small>{{country}}</small></p>
+    <hr>
+    <p><strong>{{createdAt}}</strong></p> 
+    <hr>       
+    <form action='/user/user-list/{{id}}/delete' method='POST'>
+    <button type='submit' class='btn btn-danger'>Delete</button>
+  </form>
+    {{/each}}
+
+    <a href="/admin" class="btn btn-dark">Volver</a>
+</div>

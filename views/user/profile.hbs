@@ -11,6 +11,7 @@
   <h5>Reading History</h5>
 
   {{#each history}}
+    <p>{{date}}</p>
     <ul>
 
       {{#each cards_id}}
@@ -19,16 +20,16 @@
     </ul>
     <a href='/cards/history-reading/' class='btn btn-purple'>Detail</a>
     <hr />
-
   {{/each}}
 
   <br />
 
-  <a href='/' class='btn btn-purple'>Home</a>
-
+  {{#if isLogged}}
   <a href='/user/profile/{{id}}/edit' class='btn btn-warning'>Edit</a>
-
-  <form action='/user/profile/{{id}}/delete' method='POST'>
-    <button type='submit' class='btn btn-danger'>Delete</button>
-  </form>
+  {{/if}}
+  
+  {{#if isADMIN}}
+  
+  <a href='/admin' class='btn btn-info'>Admin Lab</a>
+  {{/if}}
 </div>
