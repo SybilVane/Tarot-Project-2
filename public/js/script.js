@@ -1,7 +1,11 @@
 document.addEventListener(
-  "DOMContentLoaded",
+  'DOMContentLoaded',
   () => {
-    console.log("tarot-project2 JS imported successfully!");
+    if (location.protocol !== 'https:') {
+      location.replace(
+        `https:${location.href.substring(location.protocol.length)}`
+      );
+    }
   },
   false
 );
