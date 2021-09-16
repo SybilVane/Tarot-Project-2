@@ -70,6 +70,13 @@ a:hover {
   border-radius: 50%;
 }
 
+.profile-avatar {
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 main {
   margin-top: 40px;
   margin-bottom: 40px;
@@ -99,6 +106,7 @@ li {
   border-radius: 3%;
   height: 250px;
   width: fit-content;
+  margin-bottom: 20px;
 }
 
 footer {

@@ -1,25 +1,33 @@
 <div class='container'>
+  <h1>Your reading</h1>
+  <h3>Click on the card to read the full description</h3>
 
-  <div class='row justify-content-center'>
-
-    <h1>Your reading</h1>
-  </div>
   <br />
+
   <div class='row justify-content-center'>
     <hr />
-    <div class='col-md-4 d-flex flex-column align-items-center'>
+
+    <div
+      id='card-back-1'
+      class='col-md-4 d-flex flex-column align-items-center'
+    >
+      <img
+        class='card-image-reading'
+        src='https://res.cloudinary.com/dqwvgka1a/image/upload/v1631733520/card-back2_glw8s9.png'
+      />
+    </div>
+
+    <div id='card-show-1' class='col-md-4 d-none align-items-center'>
       {{#if positionA}}
         <img
           class='card-image-reading'
           src='{{card1.uprightImage}}'
           alt='{{card1.name}}'
         />
-        <br /><br />
+
         <h4>keywords</h4>
 
-        <p>{{card1.uprightKeywords}}</p>
-
-        <br /><br />
+        <p class='text-centered'>{{card1.uprightKeywords}}</p>
 
       {{else}}
         <img
@@ -27,28 +35,52 @@
           src='{{card1.reverseImage}}'
           alt='{{card1.name}}'
         />
-        <br /><br />
+
         <h4>keywords</h4>
 
-        <p>{{card1.reverseKeywords}}</p>
-
-        <br /><br />
+        <p class='text-centered'>{{card1.reverseKeywords}}</p>
 
       {{/if}}
+      <br />
     </div>
-    <div class='col-md-4 d-flex flex-column align-items-center text-centered'>
+
+    <div id='card-info-1' class='col-md-4 d-none align-items-center'>
+      {{#if positionA}}
+
+        <h4>{{card1.name}}</h4>
+
+        <p class='text-centered'>{{card1.uprightFullDescription}}</p>
+
+      {{else}}
+        <h4>{{card1.name}}</h4>
+
+        <p class='text-centered'>{{card1.reverseFullDescription}}</p>
+
+      {{/if}}
+      <br />
+    </div>
+
+    <div
+      id='card-back-2'
+      class='col-md-4 d-flex flex-column align-items-center'
+    >
+      <img
+        class='card-image-reading'
+        src='https://res.cloudinary.com/dqwvgka1a/image/upload/v1631733520/card-back2_glw8s9.png'
+      />
+    </div>
+
+    <div id='card-show-2' class='col-md-4 d-none align-items-center'>
       {{#if positionB}}
         <img
           class='card-image-reading'
           src='{{card2.uprightImage}}'
           alt='{{card2.name}}'
         />
-        <br /><br />
+
         <h4>keywords</h4>
 
-        <p>{{card2.uprightKeywords}}</p>
-
-        <br /><br />
+        <p class='text-centered'>{{card2.uprightKeywords}}</p>
 
       {{else}}
         <img
@@ -56,28 +88,52 @@
           src='{{card2.reverseImage}}'
           alt='{{card2.name}}'
         />
-        <br /><br />
+
         <h4>keywords</h4>
 
-        <p>{{card2.reverseKeywords}}</p>
-
-        <br /><br />
+        <p class='text-centered'>{{card2.reverseKeywords}}</p>
 
       {{/if}}
+      <br />
     </div>
-    <div class='col-md-4 d-flex flex-column align-items-center text-centered'>
+
+    <div id='card-info-2' class='col-md-4 d-none align-items-center'>
+      {{#if positionA}}
+
+        <h4>{{card2.name}}</h4>
+
+        <p class='text-centered'>{{card2.uprightFullDescription}}</p>
+
+      {{else}}
+        <h4>{{card2.name}}</h4>
+
+        <p class='text-centered'>{{card2.reverseFullDescription}}</p>
+
+      {{/if}}
+      <br />
+    </div>
+
+    <div
+      id='card-back-3'
+      class='col-md-4 d-flex flex-column align-items-center'
+    >
+      <img
+        class='card-image-reading'
+        src='https://res.cloudinary.com/dqwvgka1a/image/upload/v1631733520/card-back2_glw8s9.png'
+      />
+
+    </div>
+    <div id='card-show-3' class='col-md-4 d-none align-items-center'>
       {{#if positionC}}
         <img
           class='card-image-reading'
           src='{{card3.uprightImage}}'
           alt='{{card3.name}}'
         />
-        <br /><br />
+
         <h4>keywords</h4>
 
-        <p>{{card3.uprightKeywords}}</p>
-
-        <br /><br />
+        <p class='text-centered'>{{card3.uprightKeywords}}</p>
 
       {{else}}
         <img
@@ -85,15 +141,33 @@
           src='{{card3.reverseImage}}'
           alt='{{card3.name}}'
         />
-        <br /><br />
+
         <h4>keywords</h4>
 
-        <p>{{card3.reverseKeywords}}</p>
-
-        <br /><br />
+        <p class='text-centered'>{{card3.reverseKeywords}}</p>
 
       {{/if}}
+      <br />
     </div>
+
+    <div id='card-info-3' class='col-md-4 d-none align-items-center'>
+      {{#if positionA}}
+
+        <h4>{{card3.name}}</h4>
+
+        <p class='text-centered'>{{card3.uprightFullDescription}}</p>
+
+      {{else}}
+        <h4>{{card3.name}}</h4>
+
+        <p class='text-centered'>{{card3.reverseFullDescription}}</p>
+
+      {{/if}}
+      <br />
+    </div>
+
   </div>
-  <a href='/' class='btn btn-purple'>Home</a>
+
 </div>
+
+<script src='/js/cards.js'></script>

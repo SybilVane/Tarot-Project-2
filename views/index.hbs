@@ -1,9 +1,25 @@
-<div class='container'>
+<script>
+  window.onload = () => { const cardBack = document.getElementById('card-back')
+  cardBack.addEventListener('click', ()=> {
+  document.getElementById('card-back').hidden = true;
+  document.getElementById('card-show').hidden = false; }) }
+</script>
 
-  <div class='row justify-content-center text-centered'>
+<div class='container'>
+  <h4>Your Daily Card</h4>
+  <div id='card-back' class='row justify-content-center text-centered'>
+    <div class='col-md-6 d-flex flex-column align-items-center'>
+      <h1>Click to get your reading!</h1>
+      <img
+        class='card-image-main'
+        src='https://res.cloudinary.com/dqwvgka1a/image/upload/v1631733520/card-back2_glw8s9.png'
+      />
+    </div>
+  </div>
+
+  <div id='card-show' class='row justify-content-center text-centered' hidden>
     <div class='col-md-6 d-flex flex-column align-items-center'>
 
-      <h4>Your Daily Card:</h4>
       {{#if position}}
         <h1>{{card.name}} (upright)</h1>
         <img
@@ -32,6 +48,7 @@
         <hr />
         <h4>Advice for today</h4>{{card.reverseFullDescription}}
       {{/if}}
+
     </div>
   </div>
 </div>
