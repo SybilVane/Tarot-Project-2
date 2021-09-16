@@ -8,7 +8,7 @@ const { CDNupload } = require('../config/upload.config');
 router.get('/signup', (req, res) => {
   axios
     .get('https://restcountries.eu/rest/v2/all')
-    .then(response => res.render('auth/sign-up', { countries: response.data }))
+    .then(response => res.render('auth/sign-up', { countries: response.data, errorMsg: req.query.err ? req.query.err : undefined }))
     .catch(err => printError(err));
 });
 
@@ -17,14 +17,14 @@ router.post('/signup', CDNupload.single('avatar'), (req, res) => {
     req.body;
 
   if (userPwd.length === 0 || username.length === 0) {
-    res.render('auth/sign-up', { errorMsg: 'Password is mandatory' });
+    res.redirect('/signup?err="Password is mandatory"', );
     return;
   }
 
   User.findOne({ username })
     .then(user => {
       if (user) {
-        res.render('auth/sign-up', { errorMsg: 'Username already exist' });
+        res.redirect('/signup?err="Username is already exist"');
         return;
       }
 
