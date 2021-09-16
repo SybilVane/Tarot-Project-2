@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Card = require('./../models/Card.model');
 const { CDNupload } = require('../config/upload.config');
 const History = require('./../models/History.model');
+const { isLoggedIn } = require('./../middleware')
 
 router.get('/database', (req, res, next) => {
   Card.find()
@@ -53,7 +54,8 @@ router.post(
 );
 
 //Reading Cards
-router.get('/reading', (req, res, next) => {
+router.get('/reading', isLoggedIn, (req, res, next) => {
+
   Card.find()
     .then(cards => {
       let card1 = cards[Math.floor(Math.random() * cards.length)];
