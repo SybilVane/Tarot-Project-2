@@ -98,14 +98,14 @@ li {
 .card-image-main {
   border-radius: 3%;
   height: 350px;
-  width: fit-content;
+  width: 200px;
   margin-bottom: 10px;
 }
 
 .card-image-reading {
   border-radius: 3%;
   height: 250px;
-  width: fit-content;
+  width: 143px;
   margin-bottom: 20px;
 }
 
