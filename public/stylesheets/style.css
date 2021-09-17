@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=IM+Fell+English+SC&family=Prata&family=Varela&display=swap');
 
 #errorMessage {
-  background-color: rgb(255, 202, 202);
+  background-color: rgb(248, 6, 6);
   width: 400px;
   position: fixed;
   right: 10px;
@@ -158,11 +158,11 @@ footer a:hover {
   }
 
   10% {
-    bottom: 10px;
+    bottom: 50px;
   }
 
   90% {
-    bottom: 10px;
+    bottom: 50px;
   }
 
   100% {

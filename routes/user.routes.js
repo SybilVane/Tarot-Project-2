@@ -31,13 +31,16 @@ router.get(
   isLoggedIn,
   checkRoles('ADMIN', 'USER'),
   (req, res) => {
-    axios
-      .get('https://restcountries.eu/rest/v2/all')
-      .then(response =>
+    const { id } = req.params
+    const countries =  axios.get('https://restcountries.eu/rest/v2/all')
+    const user = User.findById(id)
+
+    Promise.all([countries, user])
+      .then(response =>{
         res.render('user/profile-edit', {
-          countries: response.data,
-          id: req.params.id,
-        })
+          countries: response[0].data,
+          user: response[1],
+        })}
       )
       .catch(err => printError(err));
   }
@@ -60,7 +63,7 @@ router.post('/profile/:id/edit', CDNupload.single('avatar'), (req, res) => {
 
   User.findByIdAndUpdate(id, query, { new: true })
     .then(user => {
-      res.redirect(`/user/profile/${id}`);
+      res.redirect(`/user/profile`);
     })
     .catch(err => console.log(err));
 });
