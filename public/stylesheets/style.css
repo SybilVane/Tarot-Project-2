@@ -112,6 +112,7 @@ li {
 
 .card-image {
   border-radius: 3%;
+  object-fit: contain;
 }
 
 .card-image-main {
@@ -120,6 +121,7 @@ li {
   width: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
+  animation: cardMain 1s ease 0.5s 1 normal none;
 }
 
 .card-image-reading {
@@ -127,6 +129,7 @@ li {
   height: 250px;
   width: 143px;
   margin-bottom: 20px;
+  animation: cardMain 1s ease 0.5s 1 normal none;
 }
 
 footer {
@@ -150,6 +153,14 @@ footer a {
 footer a:hover {
   color: #ce9eff;
   text-decoration: none;
+}
+
+@keyframes cardMain {
+  0.0% {
+  }
+  3.2% {
+    transform: scale(1.1);
+  }
 }
 
 @keyframes showFromBottom {
