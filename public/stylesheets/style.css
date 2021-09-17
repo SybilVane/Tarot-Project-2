@@ -2,10 +2,13 @@
 
 #errorMessage {
   background-color: rgb(248, 6, 6);
-  width: 400px;
+  color: #ffffff;
+  font-size: 0.7em;
+  font-family: 'Varela', sans-serif;
+  width: 300px;
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+
+  bottom: 5px;
   padding: 5px;
   text-align: center;
   animation: showFromBottom 6s forwards;
@@ -121,7 +124,7 @@ li {
   width: 200px;
   margin-top: 10px;
   margin-bottom: 10px;
-  animation: cardMain 1s ease 0.5s 1 normal none;
+  animation: cardMain 1s ease 0.4s 1 normal none;
 }
 
 .card-image-reading {
@@ -129,7 +132,7 @@ li {
   height: 250px;
   width: 143px;
   margin-bottom: 20px;
-  animation: cardMain 1s ease 0.5s 1 normal none;
+  animation: cardMain 1s ease 0.4s 1 normal none;
 }
 
 footer {
@@ -138,7 +141,7 @@ footer {
   background-color: #1c0038;
   font-size: 0.7em;
   font-family: 'Varela', sans-serif;
-  color: white;
+  color: #ffffff;
   padding: 4px;
   position: fixed;
   bottom: 0;
@@ -165,19 +168,19 @@ footer a:hover {
 
 @keyframes showFromBottom {
   0% {
-    bottom: -50px;
+    bottom: -40px;
   }
 
   10% {
-    bottom: 50px;
+    bottom: 40px;
   }
 
   90% {
-    bottom: 50px;
+    bottom: 40px;
   }
 
   100% {
-    bottom: -50px;
+    bottom: -40px;
   }
 }
 

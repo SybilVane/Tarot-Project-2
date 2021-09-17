@@ -8,7 +8,12 @@ const { CDNupload } = require('../config/upload.config');
 router.get('/signup', (req, res) => {
   axios
     .get('https://restcountries.eu/rest/v2/all')
-    .then(response => res.render('auth/sign-up', { countries: response.data, errorMsg: req.query.err ? req.query.err : undefined }))
+    .then(response =>
+      res.render('auth/sign-up', {
+        countries: response.data,
+        errorMsg: req.query.err ? req.query.err : undefined,
+      })
+    )
     .catch(err => printError(err));
 });
 
@@ -17,14 +22,14 @@ router.post('/signup', CDNupload.single('avatar'), (req, res) => {
     req.body;
 
   if (userPwd.length === 0 || username.length === 0) {
-    res.redirect('/signup?err="Password is mandatory"', );
+    res.redirect('/signup?err="Password required"');
     return;
   }
 
   User.findOne({ username })
     .then(user => {
       if (user) {
-        res.redirect('/signup?err="Username is already exist"');
+        res.redirect('/signup?err="Username already exists"');
         return;
       }
 
@@ -81,8 +86,8 @@ router.post('/login', (req, res) => {
 
 // Logout
 router.get('/logout', (req, res) => {
-  req.app.locals.isLogged = false
-  req.session.destroy(() => res.redirect('/'))
-})
+  req.app.locals.isLogged = false;
+  req.session.destroy(() => res.redirect('/'));
+});
 
 module.exports = router;
