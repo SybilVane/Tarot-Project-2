@@ -1,4 +1,5 @@
 <div class='container'>
+  
 
   <div class='row justify-content-center'>
 
@@ -6,7 +7,7 @@
 
       <h1>Update Profile</h1>
 
-      <form action='/user/profile/{{id}}/edit' method='POST'  enctype='multipart/form-data'>
+      <form action='/user/profile/{{user._id}}/edit' method='POST'  enctype='multipart/form-data'>
         <div class='form-group'>
           <label for='username'>Username</label>
           <input
@@ -14,7 +15,7 @@
             class='form-control'
             id='username'
             name='username'
-            value='{{username}}'
+            value='{{user.username}}'
             disabled='disabled'
           />
         </div>
@@ -36,7 +37,7 @@
             class='form-control'
             id='firstName'
             name='firstName'
-            value='{{firstName}}'
+            value='{{user.firstName}}'
             disabled='disabled'
           />
         </div>
@@ -47,7 +48,7 @@
             class='form-control'
             id='lastName'
             name='lastName'
-            value='{{lastName}}'
+            value='{{user.lastName}}'
             disabled='disabled'
           />
         </div>
@@ -58,7 +59,7 @@
             class='form-control'
             id='email'
             name='email'
-            value='{{email}}'
+            value='{{user.email}}'
           />
         </div>
         <div class='form-group'>
@@ -68,7 +69,7 @@
             class='form-control'
             id='age'
             name='age'
-            value='{{age}}'
+            value='{{user.age}}'
           />
         </div>
         <div class='form-group'>
@@ -99,7 +100,7 @@
         <p id='errorMessage'>{{errorMsg}}</p>
       {{/if}}
 
-      <a href='user/profile/{{id}}' class='btn btn-purple'>Back to Profile</a>
+      <a href='user/profile/{{user._id}}' class='btn btn-purple'>Back to Profile</a>
 
     </div>
   </div>
